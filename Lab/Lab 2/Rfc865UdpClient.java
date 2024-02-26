@@ -1,7 +1,7 @@
 /**
  * Name: Shen Chihao
- * Group: YourLabGroup
- * IP Address: YourClientIPAddress
+ * Group: SCS4
+ * IP Address: 10.96.181.107
  */
 
 import java.net.*;
@@ -28,12 +28,11 @@ public class Rfc865UdpClient {
             //
             byte[] message;
 //            InetAddress address = InetAddress.getByName("127.0.0.1");
-            InetAddress address = InetAddress.getByName("172.20.186.160");
-//            InetAddress address = InetAddress.getByName("hwlab1.scse.ntu.edu.sg");
-            message = String.format("Shen Chihao, ***, %s", InetAddress.getLocalHost().getHostAddress()).getBytes();
+//            InetAddress address = InetAddress.getByName("172.20.186.160");
+			InetAddress address = InetAddress.getByName("hwlab1.scse.ntu.edu.sg");  
+            message = String.format("Shen Chihao, SCS4, %s", InetAddress.getLocalHost().getHostAddress()).getBytes();
 
-            DatagramPacket request = new DatagramPacket(message, message.length);
-            socket.connect(address, PORT);
+            DatagramPacket request = new DatagramPacket(message, message.length, address, PORT);
             System.out.println("Sending: " + new String(message));
             socket.send(request);
             //
